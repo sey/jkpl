@@ -4,6 +4,12 @@ pipeline {
     agent any
 
     stages {
+        stage('Prepare') {
+            steps {
+                sh 'node --version'
+                sh 'npm --version'
+            }
+        }
         stage('Build') {
             steps {
                 echo 'Building...'
