@@ -1,0 +1,23 @@
+{
+  "name": "jkpl",
+  "version": "1.0.0",
+  "description": "Jenkins Pipeline Experiment",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sey/jkpl.git"
+  },
+  "author": "Florian Sey <florian.sey@gmail.com> (http://florian-sey.fr)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sey/jkpl/issues"
+  },
+  "homepage": "https://github.com/sey/jkpl#readme",
+  "dependencies": {
+    "express": "^4.15.2"
+  }
+}
