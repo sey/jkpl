@@ -22,6 +22,13 @@ pipeline {
                 sh 'npm test'
             }
         }
+        stage('Archive') {
+            steps {
+                withNPM(npmrcConfig: 'npmrc-nexus') {
+                    sh 'npm publish'
+                }
+            }
+        }
         stage('Deploy') {
             steps {
                 echo 'Deploying.....'
