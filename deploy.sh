@@ -30,11 +30,11 @@ npm install --production || exit
 popd || exit
 
 if [ -d ${TARGET_DIR} ]; then
-  sudo rm -rf ${TARGET_DIR}/* || exit
+  rm -rf ${TARGET_DIR}/* || exit
 fi
 
-sudo mkdir -p ${TARGET_DIR} || exit
+mkdir -p ${TARGET_DIR} || exit
 
-sudo mv ${TMP_DIR}/package/* ${TARGET_DIR} || exit
+mv ${TMP_DIR}/package/* ${TARGET_DIR} || exit
 
 pm2 start ${TARGET_DIR}/src/app.js --name jkpl || exit
