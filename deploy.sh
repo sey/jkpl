@@ -18,7 +18,7 @@ echo 'Create tmp directory:' ${TMP_DIR}
 mkdir -p ${TMP_DIR} || exit
 
 echo 'Download file: wget -O' ${TMP_FILE} ${PACKAGE_URL}
-wget --user=${NPM_REPO_USR} --password=${NPM_REPO_USR} -O ${TMP_FILE} ${PACKAGE_URL} || exit
+wget --user=${NPM_REPO_USR} --password=${NPM_REPO_PSW} -O ${TMP_FILE} ${PACKAGE_URL} || exit
 
 echo 'Extract file:' tar xf ${TMP_FILE} '-C' ${TMP_DIR}
 tar xf ${TMP_FILE} -C ${TMP_DIR} || exit
