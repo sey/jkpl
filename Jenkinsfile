@@ -18,12 +18,12 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building...'
+                sh 'npm install'
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing...'
-                sh 'npm install'
                 sh 'npm test'
             }
         }
