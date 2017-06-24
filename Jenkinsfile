@@ -27,6 +27,12 @@ pipeline {
                 sh 'npm test'
             }
         }
+        stage('Version') {
+            steps {
+                echo 'Versioning...'
+                sh 'printenv'
+            }
+        }
         stage('Archive') {
             steps {
                 echo 'Archiving...'
