@@ -37,4 +37,4 @@ mkdir -p ${TARGET_DIR} || exit
 
 mv ${TMP_DIR}/package/* ${TARGET_DIR} || exit
 
-pm2 start ${TARGET_DIR}/src/app.js --name jkpl || exit
+pm2 startOrReload ${TARGET_DIR}/ecosystem.config.js --name jkpl || exit
