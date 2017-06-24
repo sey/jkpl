@@ -30,7 +30,8 @@ pipeline {
         stage('Version') {
             steps {
                 echo 'Versioning...'
-                sh 'printenv'
+                sh 'npm version patch -m "[ci-skip] Release %s.'
+                sh 'git push origin ${BRANCH_NAME}'
             }
         }
         stage('Archive') {
