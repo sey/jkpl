@@ -3,7 +3,12 @@ const express = require('express')
 const app = express()
 
 app.get('/', (req, res) => {
-  res.send('Hello world!')
+  console.time(req.url)
+  res.send('Hello Florian!')
+  console.log('response sent')
+  console.warn('response sent')
+  console.error('response sent')
+  console.timeEnd(req.url)
 })
 
 app.listen(5000, () => {

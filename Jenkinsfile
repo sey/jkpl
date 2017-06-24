@@ -3,6 +3,11 @@
 pipeline {
     agent any
 
+    environment {
+        NPM_REPO_URL = credentials('npm-repo-url')
+        NPM_REPO = credentials('npm-repo')
+    }
+
     stages {
         stage('Prepare') {
             steps {
@@ -24,6 +29,7 @@ pipeline {
         }
         stage('Archive') {
             steps {
+                echo 'Archiving...'
                 withNPM(npmrcConfig: 'npmrc-nexus') {
                     sh 'npm publish'
                 }
@@ -31,7 +37,8 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying.....'
+                echo 'Deploying...'
+                sh deploy.sh
             }
         }
     }
