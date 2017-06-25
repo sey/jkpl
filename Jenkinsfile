@@ -28,6 +28,9 @@ pipeline {
             }
         }
         stage('Version') {
+            when {
+                branch 'master'
+            }
             steps {
                 echo 'Versioning...'
                 sh 'npm version patch -m "[ci-skip] Release %s."'
