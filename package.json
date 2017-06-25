@@ -1,6 +1,6 @@
 {
   "name": "jkpl",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Jenkins Pipeline Experiment",
   "main": "src/app.js",
   "scripts": {
