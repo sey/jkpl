@@ -31,7 +31,9 @@ pipeline {
             steps {
                 echo 'Versioning...'
                 sh 'npm version patch -m "[ci-skip] Release %s."'
-                sh 'git push origin `git branch | grep "*" | awk \'{print $2}\'`'
+                sshagent (credentials: ['jenkins-ssh']) {
+                    sh 'git push origin `git branch | grep "*" | awk \'{print $2}\'`'
+                }
             }
         }
         stage('Archive') {
