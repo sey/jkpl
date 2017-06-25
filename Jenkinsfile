@@ -6,6 +6,7 @@ pipeline {
     environment {
         NPM_REPO_URL = credentials('npm-repo-url')
         NPM_REPO = credentials('npm-repo')
+        BRANCH_NAME = `git branch | grep "*" | awk \'{print $2}\'`
     }
 
     stages {
@@ -31,7 +32,6 @@ pipeline {
             steps {
                 echo 'Versioning...'
                 sh 'printenv'
-                sh 'BRANCH_NAME=`git branch | grep "*" | awk \'{print $2}\'`'
                 sh 'echo Branch name: ${BRANCH_NAME}'
                 sh 'npm version patch -m "[ci-skip] Release %s."'
                 sh 'git push origin ${BRANCH_NAME}'
